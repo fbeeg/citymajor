@@ -9,7 +9,7 @@ Deploy the Next.js web client (`web/`) to Coolify for branch previews. Productio
 | **Coolify app name** | `citymajor-web` |
 | **App UUID** | `w134tsftvj327kp96j45kcsb` |
 | **Preview URL** | [https://citymajor.apps.softblaze.net](https://citymajor.apps.softblaze.net) |
-| Repository | `gkinter/citymajor` |
+| Repository | `fbeeg/citymajor` |
 | Branch | `feat/wasm-r3f-integration-2026-07-04` |
 | Build pack | **Dockerfile** (repo root) |
 | Dockerfile | `/Dockerfile` |
@@ -29,7 +29,7 @@ Push `79ef561` (`feat/web`: economy panel, Meshy catalog, etc.) landed on `feat/
 | Check | Result |
 |-------|--------|
 | `git_branch` | `feat/wasm-r3f-integration-2026-07-04` (matches pushed branch) |
-| `git_repository` | `gkinter/citymajor` |
+| `git_repository` | `fbeeg/citymajor` |
 | `watch_paths` | empty (full repo) |
 | `application_settings.is_auto_deploy_enabled` | **true** |
 | `application_settings.is_preview_deployments_enabled` | false |
@@ -48,17 +48,17 @@ Creating the app via **Public Repository** / `Public GitHub` without the org Git
 
 Follow the UI runbook below end-to-end. Until **`source_id ≠ 0`** and push deploys show **`is_webhook = true`**, every build must be triggered manually (Deploy button or `coolify deploy --force`).
 
-#### A. GitHub — grant the Coolify App access to `gkinter/citymajor`
+#### A. GitHub — grant the Coolify App access to `fbeeg/citymajor`
 
-The fleet GitHub App (**Softblaze Coolify**, same installation used for `DigitalSoftDistribution/*` previews) must be allowed to read `gkinter/citymajor` and receive push webhooks.
+The fleet GitHub App (**Softblaze Coolify**, same installation used for `DigitalSoftDistribution/*` previews) must be allowed to read `fbeeg/citymajor` and receive push webhooks.
 
-1. Open **[github.com/settings/installations](https://github.com/settings/installations)** (personal account) **or** **[github.com/organizations/gkinter/settings/installations](https://github.com/organizations/gkinter/settings/installations)** (org — preferred if the repo lives under `gkinter`).
+1. Open **[github.com/settings/installations](https://github.com/settings/installations)** (personal account) **or** **[github.com/settings/installations](https://github.com/settings/installations)** (org — preferred if the repo lives under `gkinter`).
 2. Click **Configure** on the Coolify / Softblaze Coolify installation.
-   - If no Coolify app is listed, install it first: in Coolify → **Settings** → **Sources** → **GitHub App** → **Install GitHub App** (follow the redirect, choose **gkinter** org, grant **Repository contents: Read** and **Metadata: Read**).
+   - If no Coolify app is listed, install it first: in Coolify → **Settings** → **Sources** → **GitHub App** → **Install GitHub App** (follow the redirect, choose the **fbeeg** account, grant **Repository contents: Read** and **Metadata: Read**).
 3. Under **Repository access**, choose one of:
-   - **Only select repositories** → **Select repositories** → add **`gkinter/citymajor`**, **or**
+   - **Only select repositories** → **Select repositories** → add **`fbeeg/citymajor`**, **or**
    - **All repositories** (only if org policy allows — not required for this single repo).
-4. Click **Save**. Confirm **`gkinter/citymajor`** appears in the installation’s repository list.
+4. Click **Save**. Confirm **`fbeeg/citymajor`** appears in the installation’s repository list.
 5. Optional sanity check on GitHub: repo **Settings** → **Integrations** → **Applications** — the Coolify app should list **Active** for this repository.
 
 #### B. Coolify UI — reconnect `citymajor-web` to the GitHub App source
@@ -71,7 +71,7 @@ Switch the app off **Public GitHub** (`source_id = 0`) onto the GitHub App sourc
 4. Scroll to **Source** (or **General** → **Source** depending on Coolify version).
 5. **Source type**: change from **Public GitHub** / **Public Repository** to **Private Repository (GitHub App)** or **GitHub App** — **not** “Public GitHub”.
 6. **GitHub App / Source**: select the fleet installation (**Softblaze Coolify** / the same source row other preview apps use, typically `source_id = 1` in Postgres).
-7. **Repository**: pick **`gkinter/citymajor`** from the dropdown (refreshes after step A).
+7. **Repository**: pick **`fbeeg/citymajor`** from the dropdown (refreshes after step A).
 8. **Branch**: **`feat/wasm-r3f-integration-2026-07-04`** — must match the branch you push to.
 9. **Base directory**: **`/`** (repo root; Dockerfile at `/Dockerfile`).
 10. **Watch paths**: leave **empty** (full-repo Docker build).
@@ -102,7 +102,7 @@ Manual deploys (`Deploy` button, `coolify deploy --force`) set **`is_webhook = f
 
 1. From worktree **`citymajor-web-r3f-spike`** (branch `feat/wasm-r3f-integration-2026-07-04`), commit and push a small change (doc-only is fine, e.g. this file).
 2. Within ~30 s, Coolify **Deployments** for `citymajor-web` should show a new row **without** clicking Deploy.
-3. If nothing queues within 2 min: re-check A (repo in GitHub App list) and B (source type is GitHub App, branch exact match), then inspect GitHub **Settings** → **Webhooks** on `gkinter/citymajor` for a Coolify delivery (recent `push` event, HTTP 2xx).
+3. If nothing queues within 2 min: re-check A (repo in GitHub App list) and B (source type is GitHub App, branch exact match), then inspect GitHub **Settings** → **Webhooks** on `fbeeg/citymajor` for a Coolify delivery (recent `push` event, HTTP 2xx).
 
 #### E. Verify `is_webhook = true` on the push-triggered deploy
 
@@ -175,7 +175,7 @@ Use this checklist when creating the **first** preview app for the WASM + R3F in
 ### Prerequisites
 
 1. Access to Coolify at [https://coolify.softblaze.net](https://coolify.softblaze.net).
-2. GitHub App **Softblaze Coolify** installed on `gkinter/citymajor` (read + deploy hooks).
+2. GitHub App **Softblaze Coolify** installed on `fbeeg/citymajor` (read + deploy hooks).
 3. Branch `feat/wasm-r3f-integration-2026-07-04` pushed to GitHub with root `Dockerfile` present.
 4. Server destination: default preview server (AX41, `*.apps.softblaze.net` wildcard via Cloudflare tunnel).
 
@@ -183,7 +183,7 @@ Use this checklist when creating the **first** preview app for the WASM + R3F in
 
 1. **Projects** → open the CityMajor project (or create one, e.g. `citymajor`).
 2. **+ New** → **Application** → **Private Repository (GitHub App)** only — do **not** use **Public GitHub** (`source_id = 0`); push webhooks will not auto-deploy (see [Auto-deploy incident](#auto-deploy-incident--commit-79ef561-2026-07-04) and [Fix runbook §B](#b-coolify-ui--reconnect-citymajor-web-to-the-github-app-source)).
-3. Select repository **`gkinter/citymajor`**.
+3. Select repository **`fbeeg/citymajor`**.
 4. **Name**: `citymajor-web` (canonical Coolify app; custom FQDN `citymajor.apps.softblaze.net`).
 5. **Environment**: `production` (Coolify env name — still a preview URL, not live prod).
 

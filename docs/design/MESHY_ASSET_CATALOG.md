@@ -97,7 +97,7 @@ The remaining v1-core `*_00` keys outside the seven Meshy files above are proced
 **Prerequisites**
 
 1. [Git LFS](https://git-lfs.com/) installed locally (`git lfs version`).
-2. GitHub **Git LFS** enabled on `gkinter/citymajor` (Settings → Git LFS). Budget ~67 MB raw-blob storage until the seven v1-core files are migrated; LFS objects for frontier `02`–`05` add ~33 MB on disk.
+2. GitHub **Git LFS** enabled on `fbeeg/citymajor` (Settings → Git LFS). Budget ~67 MB raw-blob storage until the seven v1-core files are migrated; LFS objects for frontier `02`–`05` add ~33 MB on disk.
 3. Clean working tree on the branch to migrate (stash or commit unrelated edits).
 4. Announce freeze: no concurrent pushes to `feat/wasm-r3f-integration-2026-07-04` (or target branch) during migrate + force-push.
 5. List active worktrees: `git worktree list` — each must reset after migrate.
