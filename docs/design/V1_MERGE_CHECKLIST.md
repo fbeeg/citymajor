@@ -2,7 +2,7 @@
 
 **Status:** Pre-merge gate (integration branch review)  
 **Branch:** `feat/wasm-r3f-integration-2026-07-04`  
-**PR:** [#1 — feat: CityMajor Web v1 — R3F + WASM integration spine](https://github.com/gkinter/citymajor/pull/1)  
+**PR:** [#1 — feat: CityMajor Web v1 — R3F + WASM integration spine](https://github.com/fbeeg/citymajor/pull/1)  
 **Scope charter:** [WEB_V1_SCOPE.md](./WEB_V1_SCOPE.md) · [SB-3704](https://linear.app/softblaze/issue/SB-3704)  
 **Last updated:** 2026-07-05 (Phase 4 wave 16 HUD polish · worktree `citymajor-checklist-wave16` · see [WAVE16_MERGE_MAP.md](./WAVE16_MERGE_MAP.md))
 
@@ -164,7 +164,7 @@ Automated code review on PR #1.
 
 | Check | Command / link | Pass criteria |
 |-------|----------------|---------------|
-| Bugbot run completed | [PR #1 checks](https://github.com/gkinter/citymajor/pull/1) | Status `COMPLETED` |
+| Bugbot run completed | [PR #1 checks](https://github.com/fbeeg/citymajor/pull/1) | Status `COMPLETED` |
 | No Critical / Major findings | Re-run after new commits | Zero blocking severity |
 | Latest reviewed SHA | `776d65d` | NEUTRAL — zero Critical/Major |
 

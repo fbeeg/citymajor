@@ -1,6 +1,6 @@
 # PR #1 body draft — CityMajor Web v1 integration spine
 
-**Target PR:** [#1 — feat: CityMajor Web v1 — R3F + WASM integration spine](https://github.com/gkinter/citymajor/pull/1)  
+**Target PR:** [#1 — feat: CityMajor Web v1 — R3F + WASM integration spine](https://github.com/fbeeg/citymajor/pull/1)  
 **Branch:** `feat/wasm-r3f-integration-2026-07-04`  
 **Integration HEAD:** `5a0b08e` (wave 15 build loop merged)  
 **Checklist:** [V1_MERGE_CHECKLIST.md](./V1_MERGE_CHECKLIST.md)  
